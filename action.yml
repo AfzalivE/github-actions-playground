@@ -1,0 +1,7 @@
+name: 'Github Actions playground'
+description: 'Play with Github Actions'
+runs:
+  using: "composite"
+  steps:
+      - run: $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
+        shell: bash
