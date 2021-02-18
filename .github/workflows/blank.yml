@@ -29,3 +29,21 @@ jobs:
       - name: Run a multi-line script
         run: |
           $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
+          
+      - name: Use android-emulator-runner
+        uses: Doist/android-emulator-runner@release/v2
+        with:
+          api-level: 29
+#          api-level: ${{ matrix.api-level }}
+          arch: x86
+          profile: Nexus 5X
+          target: google_apis
+          disable-animations: true
+          disable-ime: true
+          disable-spellchecker: true
+          disable-autofill: true
+          longpress-timeout: 2000
+          emulator-options: -no-snapshot -no-boot-anim -no-audio -no-window -delay-adb -gpu swiftshader_indirect
+          script: |
+            sdkmanager --version
+            $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
