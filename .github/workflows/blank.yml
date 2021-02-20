@@ -46,4 +46,10 @@ jobs:
           emulator-options: -no-snapshot -no-boot-anim -no-audio -no-window -delay-adb -gpu swiftshader_indirect
           script: |
             sdkmanager --version
-            $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
+#            $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
+      - name: Upload logcat output
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: logcat
+          path: artifacts/logcat.log
